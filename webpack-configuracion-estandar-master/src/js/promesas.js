@@ -29,6 +29,29 @@ export const buscarHeroes = (id)=> {
 }
 
 
+export const buscarHeroesAsync = async( id ) => {
+
+    
+    const heroe = heroes[id];
+
+                if (heroe){
+                    return heroe;
+                }else{
+                    // throw  Error(`No existe un heroe con el id ${id}`);
+                    throw  `No existe un heroe con el id ${id}`;
+
+                }
+
+    /* return new Promise((resolve, reject)=>{
+                   if (heroe){
+                       resolve(heroe);
+                   }else{
+                       reject(`No existe un heroe con el id ${id}`);
+                   }
+    }); */
+
+}
+
 const promesaLenta = new Promise ( (resolve, reject)=>{
     setTimeout(() => {
         resolve('Promesa lenta');
@@ -46,7 +69,7 @@ const promesaMedia = new Promise ( (resolve, reject)=>{
 const promesaRapida = new Promise ( (resolve, reject)=>{
     setTimeout(() => {
         resolve('Promesa rapida');
-    }, 3000);
+    }, 1000);
 });
 
 export {
