@@ -22,8 +22,35 @@ export const buscarHeroes = (id)=> {
                    if (heroe){
                        resolve(heroe);
                    }else{
-                       reject('No existe un heroe');
+                       reject(`No existe un heroe con el id ${id}`);
                    }
     });
 
+}
+
+
+const promesaLenta = new Promise ( (resolve, reject)=>{
+    setTimeout(() => {
+        resolve('Promesa lenta');
+    }, 2000);
+});
+
+
+const promesaMedia = new Promise ( (resolve, reject)=>{
+    setTimeout(() => {
+        resolve('Promesa media');
+    }, 1500);
+});
+
+
+const promesaRapida = new Promise ( (resolve, reject)=>{
+    setTimeout(() => {
+        resolve('Promesa rapida');
+    }, 3000);
+});
+
+export {
+    promesaLenta,
+    promesaMedia,
+    promesaRapida
 }
